@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/beeper/static/css/main.80ff07f0.chunk.css",
+    "main.js": "/beeper/static/js/main.46f36dbf.chunk.js",
+    "main.js.map": "/beeper/static/js/main.46f36dbf.chunk.js.map",
+    "runtime-main.js": "/beeper/static/js/runtime-main.a4f73e9c.js",
+    "runtime-main.js.map": "/beeper/static/js/runtime-main.a4f73e9c.js.map",
+    "static/js/2.8ad1951e.chunk.js": "/beeper/static/js/2.8ad1951e.chunk.js",
+    "static/js/2.8ad1951e.chunk.js.map": "/beeper/static/js/2.8ad1951e.chunk.js.map",
+    "static/js/3.ce314608.chunk.js": "/beeper/static/js/3.ce314608.chunk.js",
+    "static/js/3.ce314608.chunk.js.map": "/beeper/static/js/3.ce314608.chunk.js.map",
+    "index.html": "/beeper/index.html",
+    "static/css/main.80ff07f0.chunk.css.map": "/beeper/static/css/main.80ff07f0.chunk.css.map",
+    "static/js/2.8ad1951e.chunk.js.LICENSE.txt": "/beeper/static/js/2.8ad1951e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a4f73e9c.js",
+    "static/js/2.8ad1951e.chunk.js",
+    "static/css/main.80ff07f0.chunk.css",
+    "static/js/main.46f36dbf.chunk.js"
+  ]
+}
