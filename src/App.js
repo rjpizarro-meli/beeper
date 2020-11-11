@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Beeper from './Beeper';
-import 'react-tabs/style/react-tabs.css';
 import './App.css';
 
 const i18n = {
