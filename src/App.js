@@ -73,14 +73,44 @@ function App() {
                   onClick={() => vibrate({ pattern: [200, 500, 200] })}
                   size="large"
                 >
-                  {i18n.gettext('Vibración 2: 200ms, 500ms, 200ms')}
+                  {i18n.gettext('Vibración 2: 200ms, 200ms')}
                 </Button>
                 <br />
                 <Button
-                  onClick={() => vibrate({ pattern: [1000, 1500] })}
+                  onClick={() => vibrate({ pattern: [1000, 500, 1500] })}
                   size="large"
                 >
                   {i18n.gettext('Vibración 3: 1000ms, 1500ms')}
+                </Button>
+                <br />
+                <Button
+                  onClick={() => {
+                    beep({ time: 2000 })
+                    vibrate({ pattern: [800, 400, 800] })
+                  }}
+                  size="large"
+                >
+                  {i18n.gettext('Combined 1: 2000ms - 2 vibraciones')}
+                </Button>
+                <br />
+                <Button
+                  onClick={() => {
+                    beep({ time: 2000 })
+                    vibrate({ pattern: [2000] })
+                  }}
+                  size="large"
+                >
+                  {i18n.gettext('Combined 2: 2000ms - 1 vibracion')}
+                </Button>
+                <br />
+                <Button
+                  onClick={() => {
+                    beep({ time: 2000 })
+                    vibrate({ pattern: [500, 250, 500, 250, 500] })
+                  }}
+                  size="large"
+                >
+                  {i18n.gettext('Combined 3: 2000ms - 3 vibraciones')}
                 </Button>
               </div>
             )

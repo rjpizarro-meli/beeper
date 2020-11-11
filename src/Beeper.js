@@ -30,7 +30,7 @@ class Beeper extends React.Component {
     gainNode.connect(this.audioContext.destination);
     gainNode.gain.value = beepVolume;
     oscillatorNode.start(this.audioContext.currentTime);
-    oscillatorNode.stop(this.audioContext.currentTime + (beepTime * 0.0012));
+    oscillatorNode.stop(this.audioContext.currentTime + (beepTime * 0.001));
   };
 
   vibrate = ({ pattern } = {}) => {
