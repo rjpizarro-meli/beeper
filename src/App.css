@@ -29,7 +29,7 @@
 }
 
 .button {
-  background: steelblue;
+  background: #3483fa;
   padding: 10px;
   border-radius: 5px;
   color: #FFF;
@@ -38,6 +38,34 @@
 
 .button:active {
   background: #2e4b63;
+}
+
+.options-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #757575;
+  background-color: #f7f1b9;
+}
+
+.reference {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #000;
+  padding: 10px;
+}
+
+.reference-text {
+  color: #000;
+  font-size: 12px;
+  text-align: left;
+  margin-left: 10px;
+}
+.reference-text p {
+  margin: 0
 }
 
 @keyframes App-logo-spin {

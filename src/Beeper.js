@@ -13,11 +13,6 @@ class Beeper extends React.Component {
     this.audioContext = new AudioContext();
   }
 
-  /*React.useEffect(() => {
-
-    audioContextRef.current =
-  }, []);*/
-
   beep = ({ time, volume, sound } = {}) => {
     const beepTime = time || 300;
     const beepVolume = volume || 0.5;
@@ -31,16 +26,45 @@ class Beeper extends React.Component {
     gainNode.gain.value = beepVolume;
     oscillatorNode.start(this.audioContext.currentTime);
     oscillatorNode.stop(this.audioContext.currentTime + (beepTime * 0.001));
+
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve()
+      }, beepTime)
+    })
   };
 
+  pause = ({ time } = {}) => {
+    const pauseTime = time || 500;
+
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve()
+      }, pauseTime)
+    })
+  }
+
   vibrate = ({ pattern } = {}) => {
-    const vibrationPattern = pattern || 2000;
+    const vibrationPattern = pattern || [ 2000 ];
+    const vibrationTime = vibrationPattern.reduce((time, accTime ) => {
+      return accTime + time
+    }, 0 )
 
     window.navigator.vibrate(vibrationPattern);
+
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve()
+      }, vibrationTime)
+    })
   };
 
   render() {
-    return this.props.children({ beep: this.beep, vibrate: this.vibrate })
+    return this.props.children({
+      beep: this.beep,
+      pause: this.pause,
+      vibrate: this.vibrate
+    })
   }
 };
 
