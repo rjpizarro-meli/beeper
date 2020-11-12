@@ -312,6 +312,42 @@ function App() {
           <p> Pause: 75ms  </p>
           <p> Beep: 400ms, vol 1, freq 3500 </p>
         </Reference>
+
+        <Reference
+          button={
+            <Button
+              onClick={async () => {
+                vibrate({ pattern: [800, 400, 800] })
+                beep({ time: 2000, volume: 1, sound: 2800 })
+              }}
+            >
+              Combinación 4 - erros
+            </Button>
+          }
+        >
+          <p> Vibrate: 800ms, (pause 400ms) 800ms  </p>
+          <p> Beep: 2000ms, vol 1, freq 2800 </p>
+        </Reference>
+
+        <Reference
+          button={
+            <Button
+              onClick={async () => {
+                vibrate({ pattern: [1650] })
+                await beep({ time: 650, volume: 1, sound: 2600 })
+                await pause({ time: 200 })
+                await beep({ time: 800, volume: 1, sound: 2800 })
+              }}
+            >
+              Combinación 5 - Atenção (Telas laranja)
+            </Button>
+          }
+        >
+          <p> Vibrate: 1650ms </p>
+          <p> Beep: 650ms, vol 1, freq 2600 </p>
+          <p> Pause: 200ms </p>
+          <p> Beep: 800ms, vol 1, freq 2800 </p>
+        </Reference>
       </Container>
     )
   }
