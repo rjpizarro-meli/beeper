@@ -263,7 +263,7 @@ function App() {
                 await beep({ time: 200, volume: 1, sound: 1500 })
               }}
             >
-              Comnbinación 1
+              Combinación 1
             </Button>
           }
         >
@@ -283,7 +283,7 @@ function App() {
                 await beep({ time: 320, volume: 1, sound: 3500 })
               }}
             >
-              Comnbinación 2
+              Combinación 2
             </Button>
           }
         >
@@ -303,7 +303,7 @@ function App() {
                 await beep({ time: 400, volume: 1, sound: 3500 })
               }}
             >
-              Comnbinación 3
+              Combinación 3
             </Button>
           }
         >
