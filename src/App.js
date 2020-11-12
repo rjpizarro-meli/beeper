@@ -28,7 +28,7 @@ const Reference = (props) => (
 )
 
 function App() {
-  const [view, changeView] = useState('combined')
+  const [view, changeView] = useState('alerts')
 
   const renderBasicBeeps = (beep, pause, vibrate) => {
     return (
@@ -250,6 +250,72 @@ function App() {
     )
   }
 
+  const renderAlertsBeeps = (beep, pause, vibrate) => {
+    return (
+      <Container>
+        <Reference
+          button={
+            <Button
+              onClick={async () => {
+                vibrate({ pattern: [200, 75, 200] })
+                await beep({ time: 200, volume: 1, sound: 1500 })
+                await pause({ time: 75 })
+                await beep({ time: 200, volume: 1, sound: 1500 })
+              }}
+            >
+              Comnbinación 1
+            </Button>
+          }
+        >
+          <p> Vibrate: 200ms, 200ms  </p>
+          <p> Beep: 200ms, vol 1, freq 1500 </p>
+          <p> Pause: 75ms  </p>
+          <p> Beep: 200ms, vol 1, freq 1500 </p>
+        </Reference>
+
+        <Reference
+          button={
+            <Button
+              onClick={async () => {
+                vibrate({ pattern: [200, 75, 320] })
+                await beep({ time: 200, volume: 0.5, sound: 1200 })
+                await pause({ time: 75 })
+                await beep({ time: 320, volume: 1, sound: 3500 })
+              }}
+            >
+              Comnbinación 2
+            </Button>
+          }
+        >
+          <p> Vibrate: 200ms, 320ms  </p>
+          <p> Beep: 200ms, vol 0.5, freq 1200 </p>
+          <p> Pause: 75ms  </p>
+          <p> Beep: 320ms, vol 1, freq 3500 </p>
+        </Reference>
+
+        <Reference
+          button={
+            <Button
+              onClick={async () => {
+                vibrate({ pattern: [200, 75, 320] })
+                await beep({ time: 250, volume: 0.5, sound: 1000 })
+                await pause({ time: 75 })
+                await beep({ time: 400, volume: 1, sound: 3500 })
+              }}
+            >
+              Comnbinación 3
+            </Button>
+          }
+        >
+          <p> Vibrate: 200ms, 320ms  </p>
+          <p> Beep: 250ms, vol 0.5, freq 1000 </p>
+          <p> Pause: 75ms  </p>
+          <p> Beep: 400ms, vol 1, freq 3500 </p>
+        </Reference>
+      </Container>
+    )
+  }
+
   const renderSoundBeeps = (beep, pause, vibrate) => {
     const frequencies = [200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2429, 2600, 2800, 3000, 3200, 3400, 3600, 3800, 4000]
 
@@ -275,12 +341,17 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="options-container">
-          <Button onClick={() => changeView('basic')}> Basic Examples </Button>
+          <Button onClick={() => changeView('alerts')}> Test de alertas </Button>
           <Button onClick={() => changeView('combined')}> Vibrate + Beep </Button>
           <Button onClick={() => changeView('sound')}> Beep Sound </Button>
+          <Button onClick={() => changeView('basic')}> Basic Examples </Button>
         </div>
         <Beeper>
           { ({ beep, pause, vibrate }) => {
+
+            if (view === 'alerts') {
+              return renderAlertsBeeps(beep, pause, vibrate)
+            }
             if (view === 'basic') {
               return renderBasicBeeps(beep, pause, vibrate)
             }
