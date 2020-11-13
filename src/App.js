@@ -348,6 +348,86 @@ function App() {
           <p> Pause: 200ms </p>
           <p> Beep: 800ms, vol 1, freq 2800 </p>
         </Reference>
+
+        <Reference
+          button={
+            <Button
+              onClick={async () => {
+                vibrate({ pattern: [1850] })
+                await beep({ time: 400, volume: 1, sound: 1600 })
+                await pause({ time: 200 })
+                await beep({ time: 400, volume: 1, sound: 1600 })
+                await pause({ time: 200 })
+                await beep({ time: 650, volume: 1, sound: 1600 })
+              }}
+            >
+              Combinación 6 - 3 beeps
+            </Button>
+          }
+        >
+          <p> Vibrate: 1850ms </p>
+          <p> Beep: 400ms, vol 1, freq 1600 </p>
+          <p> Pause: 200ms </p>
+          <p> Beep: 400ms, vol 1, freq 1600 </p>
+          <p> Pause: 200ms </p>
+          <p> Beep: 650ms, vol 1, freq 1600 </p>
+        </Reference>
+
+        <Reference
+          button={
+            <Button
+              onClick={async () => {
+                vibrate({ pattern: [1850] })
+                await beep({ time: 450, volume: 1, sound: 1600 })
+                await pause({ time: 150 })
+                await beep({ time: 450, volume: 1, sound: 1600 })
+                await pause({ time: 150 })
+                await beep({ time: 650, volume: 1, sound: 1600 })
+              }}
+            >
+              Combinación 6 B - 3 beeps (pause 150ms)
+            </Button>
+          }
+        >
+          <p> Vibrate: 1850ms </p>
+          <p> Beep: 450ms, vol 1, freq 1600 </p>
+          <p> Pause: 150ms </p>
+          <p> Beep: 450ms, vol 1, freq 1600 </p>
+          <p> Pause: 150ms </p>
+          <p> Beep: 650ms, vol 1, freq 1600 </p>
+        </Reference>
+
+        <Reference
+          button={
+            <Button
+              onClick={async () => {
+                vibrate({ pattern: [650, 200, 650] })
+                await beep({ time: 1500, volume: 1, sound: 1600 })
+              }}
+            >
+              Combinación 7 - 2 vibr curtas
+            </Button>
+          }
+        >
+          <p> Vibrate: 650ms, (pause 200), 650ms </p>
+          <p> Beep: 1500ms, vol 1, freq 1600 </p>
+        </Reference>
+
+        <Reference
+          button={
+            <Button
+              onClick={async () => {
+                vibrate({ pattern: [675, 150, 675] })
+                await beep({ time: 1500, volume: 1, sound: 1600 })
+              }}
+            >
+              Combinación 7 B - 2 vibr curtas (pause 150)
+            </Button>
+          }
+        >
+          <p> Vibrate: 675ms, (pause 150), 675ms </p>
+          <p> Beep: 1500ms, vol 1, freq 1600 </p>
+        </Reference>
       </Container>
     )
   }
