@@ -28,7 +28,29 @@ const Reference = (props) => (
 )
 
 function App() {
-  const [view, changeView] = useState('alerts')
+  const [view, changeView] = useState('demo')
+
+  const renderDemo = (beep, pause, vibrate) => {
+    return (
+      <Container>
+        <Reference
+          button={
+            <Button
+              onClick={async () => {
+                vibrate({ pattern: [1600] })
+                await beep({ time: 1600, volume: 1, sound: 1200 })
+              }}
+            >
+              Errores y Alertas
+            </Button>
+          }
+        >
+          <p> Vibración: 1600ms </p>
+          <p> Beep: 1600ms, vol 1, freq 1200 </p>
+        </Reference>
+      </Container>
+    )
+  }
 
   const renderBasicBeeps = (beep, pause, vibrate) => {
     return (
@@ -453,17 +475,30 @@ function App() {
     )
   }
 
+  const renderOptions = () => {
+    return (
+      <div className="options-container">
+        <Button onClick={() => changeView('alerts')}> Test de alertas </Button>
+        <Button onClick={() => changeView('combined')}> Vibrate + Beep </Button>
+        <Button onClick={() => changeView('sound')}> Beep Sound </Button>
+        <Button onClick={() => changeView('basic')}> Basic Examples </Button>
+      </div>
+    )
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <div className="options-container">
-          <Button onClick={() => changeView('alerts')}> Test de alertas </Button>
-          <Button onClick={() => changeView('combined')}> Vibrate + Beep </Button>
-          <Button onClick={() => changeView('sound')}> Beep Sound </Button>
-          <Button onClick={() => changeView('basic')}> Basic Examples </Button>
-        </div>
         <Beeper>
           { ({ beep, pause, vibrate }) => {
+
+            if (view === 'demo' ) {
+              return (
+                <div>
+                  {renderDemo(beep, pause, vibrate)}
+                </div>
+              )
+            }
 
             if (view === 'alerts') {
               return renderAlertsBeeps(beep, pause, vibrate)

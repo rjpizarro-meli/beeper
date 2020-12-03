@@ -1,7 +1,7 @@
 import React from 'react'
 
 const BEEPS = {
-  ERROR: 2429,
+  ERROR: 1200,
 };
 
 class Beeper extends React.Component {
