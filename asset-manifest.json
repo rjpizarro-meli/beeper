@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/beeper/static/css/main.dcd63813.chunk.css",
-    "main.js": "/beeper/static/js/main.266ae7ea.chunk.js",
-    "main.js.map": "/beeper/static/js/main.266ae7ea.chunk.js.map",
+    "main.js": "/beeper/static/js/main.e700022e.chunk.js",
+    "main.js.map": "/beeper/static/js/main.e700022e.chunk.js.map",
     "runtime-main.js": "/beeper/static/js/runtime-main.98bb525f.js",
     "runtime-main.js.map": "/beeper/static/js/runtime-main.98bb525f.js.map",
     "static/js/2.1234e6c6.chunk.js": "/beeper/static/js/2.1234e6c6.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.98bb525f.js",
     "static/js/2.1234e6c6.chunk.js",
     "static/css/main.dcd63813.chunk.css",
-    "static/js/main.266ae7ea.chunk.js"
+    "static/js/main.e700022e.chunk.js"
   ]
 }
