@@ -41,7 +41,7 @@ function App() {
                 await beep({ time: 1600, volume: 1, sound: 1200 })
               }}
             >
-              Errores y Alertas
+              Errores y Alertas (config actual)
             </Button>
           }
         >
@@ -463,7 +463,7 @@ function App() {
           <Reference
             button={
               <Button
-                onClick={() => beep({ time: 500, sound: sound  })}
+                onClick={() => beep({ time: 1000, sound: sound  })}
               >
                 Beep {sound} Mhz
               </Button>
@@ -478,10 +478,11 @@ function App() {
   const renderOptions = () => {
     return (
       <div className="options-container">
+        <Button onClick={() => changeView('demo')}> Demo - Config Actual </Button>
         <Button onClick={() => changeView('alerts')}> Test de alertas </Button>
         <Button onClick={() => changeView('combined')}> Vibrate + Beep </Button>
-        <Button onClick={() => changeView('sound')}> Beep Sound </Button>
-        <Button onClick={() => changeView('basic')}> Basic Examples </Button>
+        <Button onClick={() => changeView('sound')}> Beep - muestra de frecuencias  </Button>
+        {/*<Button onClick={() => changeView('basic')}> Basic Examples </Button>*/}
       </div>
     )
   }
@@ -489,12 +490,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        {renderOptions()}
         <Beeper>
           { ({ beep, pause, vibrate }) => {
 
             if (view === 'demo' ) {
               return (
-                <div>
+                <div style={{flex: 1}}>
                   {renderDemo(beep, pause, vibrate)}
                 </div>
               )
