@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import range from 'lodash/range'
 import Beeper from './Beeper';
 import './App.css';
 
@@ -455,7 +456,7 @@ function App() {
   }
 
   const renderSoundBeeps = (beep, pause, vibrate) => {
-    const frequencies = [200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2429, 2600, 2800, 3000, 3200, 3400, 3600, 3800, 4000]
+    const frequencies = range(200, 4600, 100)
 
     return (
       <Container>
