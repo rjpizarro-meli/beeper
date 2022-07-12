@@ -491,6 +491,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <input
+          id="scanner"
+          className="code-scanner__input"
+          type="text"
+          onChange={() => console.log('>>>>>')}
+          autoComplete="off"
+        />
+
         {renderOptions()}
         <Beeper>
           { ({ beep, pause, vibrate }) => {
