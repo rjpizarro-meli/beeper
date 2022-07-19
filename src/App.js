@@ -30,6 +30,11 @@ const Reference = (props) => (
 
 function App() {
   const [view, changeView] = useState('demo')
+  const [value, changeValue] = useState('')
+
+  const forceChangeInputValue = () => {
+    changeValue(String(Math.random() * 100))
+  }
 
   const renderDemo = (beep, pause, vibrate) => {
     return (
@@ -497,7 +502,9 @@ function App() {
           type="text"
           onChange={() => console.log('>>>>>')}
           autoComplete="off"
+          value={value}
         />
+        <button onClick={forceChangeInputValue}> Change Value </button>
 
         {renderOptions()}
         <Beeper>
